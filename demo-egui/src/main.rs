@@ -56,12 +56,13 @@ The quick brown fox jumps over the lazy dog.
 }
 
 impl eframe::App for MyApp {
-    fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::TopBottomPanel::bottom("log_panel")
+    fn ui(&mut self, ui:&mut egui::Ui, _frame: &mut eframe::Frame) {
+        let ctx = ui.ctx().clone();
+        egui::Panel::bottom("log_panel")
             .resizable(true)
-            .min_height(100.0)
-            .default_height(150.0)
-            .show(ctx, |ui| {
+            .min_size(100.0)
+            .default_size(150.0)
+            .show_inside(ui, |ui| {
                 ui.heading("Logs");
                 egui::ScrollArea::vertical()
                     .id_salt("log_scroll")
@@ -74,7 +75,7 @@ impl eframe::App for MyApp {
                     });
             });
 
-        egui::CentralPanel::default().show(ctx, |ui| {
+        egui::CentralPanel::default().show_inside(ui, |ui| {
             ui.group(|ui| {
                 ui.heading("Font Controls");
                 ui.add_space(5.0);
@@ -155,8 +156,8 @@ impl eframe::App for MyApp {
                         self.add_log(format!("LC_ALL={:?}", std::env::var("LC_ALL")));
                         self.add_log(format!("LC_CTYPE={:?}", std::env::var("LC_CTYPE")));
                         let installed = match self.selected_region {
-                            None => set_auto(ctx, self.selected_style),
-                            Some(region) => set_with_region(ctx, region, self.selected_style),
+                            None => set_auto(&ctx, self.selected_style),
+                            Some(region) => set_with_region(&ctx, region, self.selected_style),
                         };
 
                         let region_text = match self.selected_region {
@@ -179,9 +180,9 @@ impl eframe::App for MyApp {
                         let mut defs = egui::FontDefinitions::default();
 
                         let installed = match self.selected_region {
-                            None => extend_auto(ctx, &mut defs, self.selected_style),
+                            None => extend_auto(&ctx, &mut defs, self.selected_style),
                             Some(region) => {
-                                extend_with_region(ctx, &mut defs, region, self.selected_style)
+                                extend_with_region(&ctx, &mut defs, region, self.selected_style)
                             }
                         };
 

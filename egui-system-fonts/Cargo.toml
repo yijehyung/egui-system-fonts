@@ -13,6 +13,6 @@ categories = ["gui"]
 rust-version = "1.88"
 
 [dependencies]
-egui = "0.33.3"
+egui = "0.34.1"
 system-fonts = "0.1"
 log = "0.4"
