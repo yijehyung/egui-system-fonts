@@ -308,7 +308,8 @@ fn set_found_fonts(ctx: &egui::Context, fonts: Vec<system_fonts::FoundFont>) -> 
             continue;
         };
 
-        defs.font_data.insert(f.key.clone(), Arc::new(FontData::from_owned(bytes)));
+        defs.font_data
+            .insert(f.key.clone(), Arc::new(FontData::from_owned(bytes)));
         keys_in_priority.push(f.key.clone());
         installed_names.push(f.family);
     }
@@ -349,7 +350,9 @@ fn fetch_and_set_font(ctx: egui::Context, url: &'static str, priority: FontPrior
     }
     let request = ehttp::Request::get(url);
     ehttp::fetch(request, move |response| {
-        FETCHING_URLS.with(|s| { s.borrow_mut().remove(url); });
+        FETCHING_URLS.with(|s| {
+            s.borrow_mut().remove(url);
+        });
         let Ok(response) = response else {
             log::error!("Failed to download font: {url}");
             return;

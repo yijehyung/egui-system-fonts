@@ -14,7 +14,7 @@ This repository is a small workspace containing:
 
 ```toml
 [dependencies]
-egui-system-fonts = "0.34.2"
+egui-system-fonts = "0.35.0"
 ```
 
 ```rust,no_run

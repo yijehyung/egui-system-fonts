@@ -88,7 +88,7 @@ impl eframe::App for MyApp {
             .resizable(true)
             .min_size(100.0)
             .default_size(150.0)
-            .show_inside(ui, |ui| {
+            .show(ui, |ui| {
                 ui.heading("Logs");
                 egui::ScrollArea::vertical()
                     .id_salt("log_scroll")
@@ -101,7 +101,7 @@ impl eframe::App for MyApp {
                     });
             });
 
-        egui::CentralPanel::default().show_inside(ui, |ui| {
+        egui::CentralPanel::default().show(ui, |ui| {
             ui.group(|ui| {
                 ui.heading("Font Controls");
                 ui.add_space(5.0);

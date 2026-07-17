@@ -6,7 +6,7 @@ System font loader for `egui`. Auto-detects locale and applies a matching font f
 
 ```toml
 [dependencies]
-egui-system-fonts = "0.34.2"
+egui-system-fonts = "0.35.0"
 ```
 
 ## Usage
