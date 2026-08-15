@@ -1,6 +1,6 @@
 [package]
 name = "egui-system-fonts"
-version = "0.35.0"
+version = "0.36.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "System font loader helpers for egui: auto-detect locale, set/add fallback fonts."
@@ -10,10 +10,10 @@ homepage = "https://github.com/yijehyung/egui-system-fonts"
 documentation = "https://docs.rs/egui-system-fonts"
 keywords = ["font", "gui", "egui"]
 categories = ["gui"]
-rust-version = "1.88"
+rust-version = "1.95"
 
 [dependencies]
-egui = "0.35"
+egui = "0.36"
 system-fonts = "0.1.2"
 log = "0.4"
 

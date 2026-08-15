@@ -2,7 +2,7 @@
 
 System font loader helpers for [`egui`](https://github.com/emilk/egui).
 
-This repository is a small workspace containing:
+This workspace contains:
 
 - **`egui-system-fonts`** — the library crate published on crates.io
 - **`demo-egui`** — a demo app to test fonts and fallbacks (native + WASM)
@@ -14,7 +14,7 @@ This repository is a small workspace containing:
 
 ```toml
 [dependencies]
-egui-system-fonts = "0.35.0"
+egui-system-fonts = "0.36.0"
 ```
 
 ```rust,no_run
